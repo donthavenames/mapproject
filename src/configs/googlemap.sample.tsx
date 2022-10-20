@@ -1,0 +1,5 @@
+const apiKey = ""
+
+export {
+  apiKey
+}
