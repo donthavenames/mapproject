@@ -1,4 +1,5 @@
 node_modules
 build
+.env
 #**/configs/*.tsx
 #!**/configs/*.sample.tsx

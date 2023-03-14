@@ -3,6 +3,7 @@ import { LatLng } from '../../interfaces/Map'
 import Map from './Map'
 import {MousePosProvider} from '../../contexts/ActiveMousePos'
 import Marker from './Marker'
+import MarkerMeetup from './MarkerMeetup'
 import Anchor from './Anchor'
 import ModalInfo from './ModalInfo'
 import styles from './styles.module.css'
@@ -23,6 +24,7 @@ const mobileAndTabletCheck = function() {
 
 const MainMap = () => {
   const [activeAddButton, setActiveAddButton] = useState(null)
+  //const [activeAddMButton, setActiveAddMButton] = useState(null)
   const [activeMarker, setActiveMarker] = useState(null)
   const [markers, setMarkers] = useState([])
   const [mapNotes, setMapNotes] = useState({})
@@ -35,11 +37,11 @@ const MainMap = () => {
     },
     {
       key: "2",
-      type: 'normal'
+      type: 'danger'
     },
     {
       key: "3",
-      type: 'normal'
+      type: 'meetup'
     }
   ]
 
@@ -77,6 +79,14 @@ const MainMap = () => {
             <Marker
               isActive={m.key === activeAddButton}
               setMarkerActive={() => {
+                setActiveAddButton(m.key)
+              }}
+              onAddMarker={addMarker}
+            />
+
+            <MarkerMeetup
+              isActive = {m.key === activeAddButton}
+              setMarkerActive = {() => {
                 setActiveAddButton(m.key)
               }}
               onAddMarker={addMarker}

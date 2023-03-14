@@ -11,7 +11,7 @@ interface MainProps {
 const Marker = ({
   isActive,
   setMarkerActive,
-  onAddMarker
+  onAddMarker 
 }:MainProps) => {
   const {setCurrPos} = useMousePosContext()
   const linkMark = useRef(null);
